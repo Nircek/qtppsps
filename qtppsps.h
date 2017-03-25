@@ -31,6 +31,7 @@ namespace GitHub {
             PPSReply varread(QString user, QString name);
             PPSReply varwrite(QString user, QString name, QString value);
             PPSReply log(QString log);
+            const static char splitter='';
         };
     }
 }
