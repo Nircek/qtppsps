@@ -1,5 +1,27 @@
 #include "qtppsps.h"
 using namespace GitHub::Nircek;
+
+PPSReply qtppsps::pop(){
+    return toReply(qteasyhttpclient(host+"/pop.php?server="+pass));
+}
+
+PPSReply qtppsps::reply(QString user, QString reply){
+    return toReply(qteasyhttpclient(host+"/reply.php?server="+pass+"&user="+user+"&text="+reply));
+}
+
+PPSReply qtppsps::varread(QString user, QString name){
+    return toReply(qteasyhttpclient(host+"/varread.php?server="+pass+"&user="+user+"&name="+name));
+}
+
+PPSReply qtppsps::varwrite(QString user, QString name, QString value){
+    return toReply(qteasyhttpclient(host+"/varwrite.php?server="+pass+"&user="+user+"&name="+name+"&value="+value));
+}
+
+PPSReply qtppsps::log(QString log){
+    return toReply(qteasyhttpclient(host+"/log.php?server="+pass+"&log="+log));
+}
+
+
 qtppsps::qtppsps(QString host, QString pass, QObject *parent):
     host(host),pass(pass),parent(parent){
 
@@ -42,3 +64,4 @@ void PPSReply::construct(PPSReplyType type, QString s){
 PPSReply qtppsps::toReply(QString s){
     return PPSReply(s.mid(0,1).toLatin1()[0],s.mid(1));
 }
+

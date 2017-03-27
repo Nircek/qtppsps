@@ -27,10 +27,11 @@ namespace GitHub {
             qtppsps(QString host, QString pass, QObject *parent=nullptr);
             ~qtppsps();
             PPSReply pop();
-            PPSReply reply(QString reply);
-            PPSReply varread(QString user, QString name, QString value);
-            PPSReply varwrite(QString user, QString name);
+            PPSReply reply(QString user, QString reply);
+            PPSReply varread(QString user, QString name);
+            PPSReply varwrite(QString user, QString name, QString value);
             PPSReply log(QString log);
+            const static char splitter='';
         };
     }
 }
