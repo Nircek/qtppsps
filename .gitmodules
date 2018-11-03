@@ -1,0 +1,3 @@
+[submodule "nircek-qteasyhttpclient"]
+	path = nircek-qteasyhttpclient
+	url = git@github.com:Nircek/nircek-qteasyhttpclient
